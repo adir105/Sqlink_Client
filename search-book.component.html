@@ -1,0 +1,12 @@
+<div class="header" *ngIf="userName">
+    <a class="logo">Hi {{ userName }}</a>
+    <input type="text" placeholder="Search books.." name="search" (input)="onSearchBookChange($event.srcElement.value)">
+</div>
+
+<ul *ngIf="books && books.length>0">
+    <li *ngFor="let book of books">
+        <p class="cursor-pointer text-underline" (click)="onClickBook(book)">{{ book.title }}</p>
+    </li>
+</ul>  
+
+
