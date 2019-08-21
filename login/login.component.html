@@ -1,0 +1,14 @@
+
+<div class="login-form">
+    <form class="user-form" [formGroup]="userForm" (ngSubmit)="login()">
+        <label for="username">User Name</label>
+        <input type="text" id="username" formControlName="userName"  placeholder="User name..." required>
+
+        <label for="password">Password</label>
+        <input type="text" id="password" formControlName="password" placeholder="Password..." required>
+        
+        <button [disabled]="userForm.invalid || userForm.pristine" [ngClass]="(userForm.invalid || userForm.pristine) ? 'cursor-disabled' : ''">Log in</button>
+    </form>
+    <small class="color-red" *ngIf="invalidUserNamePassword">{{ invalidUserNamePasswordMsgError }}</small>
+</div>
+
